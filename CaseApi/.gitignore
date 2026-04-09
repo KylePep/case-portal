@@ -33,3 +33,10 @@ artifacts/
 # OS-specific
 .DS_Store
 Thumbs.db
+
+# SQLite database files
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+
