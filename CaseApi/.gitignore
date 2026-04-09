@@ -1,0 +1,35 @@
+# Visual Studio / JetBrains
+.vs/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build outputs
+/bin/
+/obj/
+
+# NuGet
+*.nupkg
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Rider / ReSharper
+*.DotSettings.user
+
+# DotNet CLI
+*.dotnet/
+*.nuget/
+
+# EF Migrations (optional, if you want to recreate them locally)
+# /Migrations/
+
+# Logs
+*.log
+
+# OS-specific
+.DS_Store
+Thumbs.db
