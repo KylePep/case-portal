@@ -8,41 +8,26 @@ namespace CaseApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+
 public class CaseController : ControllerBase
 {
-  private readonly AppDbContext _db;
+  private readonly ICaseService _service;
 
-  public CaseController(AppDbContext db)
+  public CaseController(ICaseService service)
   {
-    _db = db;
+    _service = service;
   }
-  [HttpGet("/")]
-  public string Root() => "API is running!";
 
   [HttpGet]
-  public IEnumerable<Case> Get()
+  public async Task<IEnumerable<Case>> Get()
   {
-    return _db.Cases.ToList();
-  }
-
-  [HttpGet("external")]
-  public async Task<string> External([FromServices] ExternalServices svc)
-  {
-    return await svc.GetExternalData();
-  }
-
-  [HttpGet("soap-test")]
-  public string soapTest([FromServices] SoapService svc)
-  {
-    var xml = "<root><value>Hello</value></root>";
-    return svc.ParseXmlResponse(xml);
+    return await _service.GetAllCases();
   }
 
   [HttpPost]
   public async Task<IActionResult> Post(Case c)
   {
-    _db.Cases.Add(c);
-    await _db.SaveChangesAsync();
-    return Ok(c);
+    var result = await _service.AddCase(c);
+    return Ok(result);
   }
 }

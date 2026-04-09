@@ -10,6 +10,7 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 
 builder.Services.AddHttpClient<ExternalServices>();
 builder.Services.AddScoped<SoapService>();
+builder.Services.AddScoped<ICaseService, CaseService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

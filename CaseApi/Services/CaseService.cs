@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CaseApi.Services;
 
-public class CaseService
+public class CaseService : ICaseService
 {
   private readonly AppDbContext _db;
 
